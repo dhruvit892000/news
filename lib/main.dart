@@ -52,9 +52,23 @@ class _MyHomePageState extends State<MyHomePage> {
                 AsyncSnapshot<List<Article>> snapshot) {
             if(snapshot.hasData)
               {
-                return Text("hurrah");
+                return ListView.builder(
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: ((BuildContext context, index)
+                  {
+                    var data = snapshot.data![index];
+                    return ListTile(
+                      title: Text('${data.title}'),
+                      subtitle: Text('${data.description}'),
+                      trailing: Image.network('${data.urlToImage}'),
+                    );
+                  }
+                  )
+                );
               }
-              return CircularProgressIndicator();
+              return Center(
+                child:  CircularProgressIndicator(),
+              );
             }
         ),
     );

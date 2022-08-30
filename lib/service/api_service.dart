@@ -1,10 +1,9 @@
 import 'dart:convert';
-
 import 'package:http/http.dart';
 import 'package:news1/model/article.dart';
 
 class ApiService{
-  final endPoint = "https://newsapi.org/v2/everything?q=tesla&from=2022-07-25&sortBy=publishedAt&apiKey=9710db7b75f648718a62e0fa2f585f44";
+  final endPoint = "https://newsapi.org/v2/everything?q=tesla&from=2022-07-30&sortBy=publishedAt&apiKey=9710db7b75f648718a62e0fa2f585f44";
   Future<List<Article>> getArticle() async{
            Response response = await get(Uri.parse(endPoint));
            if(response.statusCode == 200)
